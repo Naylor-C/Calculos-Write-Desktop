@@ -7,7 +7,9 @@ public:
 
 protected:
   //Signal handlers:
-  void on_button_clicked();
+  void on_button0_clicked();
+  void on_button1_clicked();
+  void on_button2_clicked();
 
   //Member widgets:
   Gtk::Button button0, button1, button2;
@@ -32,7 +34,7 @@ MyWindow::MyWindow()
   // When the button receives the "clicked" signal, it will call the
   // on_button_clicked() method defined below.
   button0.signal_clicked().connect(sigc::mem_fun(*this,
-              &MyWindow::on_button_clicked));
+              &MyWindow::on_button0_clicked));
 
   // This packs the button into the Window (a container).
   set_child(button0);
@@ -40,7 +42,7 @@ MyWindow::MyWindow()
 
 
 MMyWindow::MyWindow()
-: button1("Start")   // creates a new button with label "Hello World".
+: button1("Option")   // creates a new button with label "Hello World".
 {
   // Sets the margin around the button.
   button1.set_margin(10);
@@ -48,7 +50,7 @@ MMyWindow::MyWindow()
   // When the button receives the "clicked" signal, it will call the
   // on_button_clicked() method defined below.
   button1.signal_clicked().connect(sigc::mem_fun(*this,
-              &MyWindow::on_button_clicked));
+              &MyWindow::on_button1_clicked));
 
   // This packs the button into the Window (a container).
   set_child(button1);
@@ -64,7 +66,7 @@ MyWindow::MyWindow()
   // When the button receives the "clicked" signal, it will call the
   // on_button_clicked() method defined below.
   button2.signal_clicked().connect(sigc::mem_fun(*this,
-              &MyWindow::on_button_clicked));
+              &MyWindow::on_button2_clicked));
 
   // This packs the button into the Window (a container).
   set_child(button2);
