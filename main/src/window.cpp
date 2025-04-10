@@ -96,7 +96,7 @@ F_Drawing("2x1" /* label */)
   // window since we are forcing a 2x1 aspect ratio */
   m_DrawingArea.set_content_width(200);
   m_DrawingArea.set_content_height(200);
-  m_Frame.set_child(m_DrawingArea);
+  F_Drawing.set_child(m_DrawingArea);
   m_AspectFrame.set_child(m_Frame);
   m_AspectFrame.set_margin(10);
 
