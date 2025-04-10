@@ -7,9 +7,13 @@ public:
 
 protected:
   //Signal handlers:
-  void on_button0_clicked();
+  void on_start_clicked();
   void on_button1_clicked();
   void on_button2_clicked();
+
+
+  //Child widgets:
+  Gtk::Frame subFrame;
 
   //Member widgets:
   Gtk::Button button0, button1, button2;
@@ -21,7 +25,6 @@ MyWindow::MyWindow()
   set_title("Math-Write");
   set_default_size(800, 600);
 
-  
 }
 
 //BUTTONS
@@ -34,7 +37,7 @@ MyWindow::MyWindow()
   // When the button receives the "clicked" signal, it will call the
   // on_button_clicked() method defined below.
   button0.signal_clicked().connect(sigc::mem_fun(*this,
-              &MyWindow::on_button0_clicked));
+              &MyWindow::on_start_clicked));
 
   // This packs the button into the Window (a container).
   set_child(button0);
@@ -74,6 +77,22 @@ MyWindow::MyWindow()
 
 //Buttons
 
+
+
+//Events 
+void MyWindow:: on_start_clicked()
+{
+/* Sets the margin around the frame. */
+  SubFrame.set_margin(10);
+
+  set_child(SubFrame);
+
+  /* Set the frames label */
+  SubFrame.set_label("Gtk::Frame Widget");
+
+  /* Align the label at the right of the frame */
+  SubFrame.set_label_align(Gtk::Align::END);
+}
 
 
 int main(int argc, char* argv[])
