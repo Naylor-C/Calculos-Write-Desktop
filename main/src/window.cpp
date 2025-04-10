@@ -12,12 +12,15 @@ protected:
   void on_button2_clicked();
 
 
+ Gtk::AspectFrame F_Aspect;
+
   //Child widgets:
-  Gtk::Frame subFrame;
+  Gtk::Frame subFrame, F_Drawing;
 
   //Member widgets:
   Gtk::Button button0, button1, button2;
 
+  Gtk::DrawingArea m_DrawingArea;
 };
 
 MyWindow::MyWindow()
@@ -76,6 +79,30 @@ MyWindow::MyWindow()
 }
 
 //Buttons
+
+//Conteudo//
+MyWindow::MyWindow()
+: F_Aspect(
+    Gtk::Align::CENTER, /* center x */
+    Gtk::Align::CENTER, /* center y */
+    2.0, /* xsize/ysize = 2 */
+    false /* ignore child's aspect */),
+F_Drawing("2x1" /* label */)
+{
+  set_title("Aspect Frame");
+
+  // Set a child widget to the aspect frame */
+  // Ask for a 200x200 window, but the AspectFrame will give us a 200x100
+  // window since we are forcing a 2x1 aspect ratio */
+  m_DrawingArea.set_content_width(200);
+  m_DrawingArea.set_content_height(200);
+  m_Frame.set_child(m_DrawingArea);
+  m_AspectFrame.set_child(m_Frame);
+  m_AspectFrame.set_margin(10);
+
+  // Add the aspect frame to our toplevel window:
+  set_child(F_Drawing);
+}
 
 
 
